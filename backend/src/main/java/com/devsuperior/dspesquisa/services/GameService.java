@@ -15,11 +15,11 @@ import com.devsuperior.dspesquisa.repositories.GameRepository;
 public class GameService {
 
 	@Autowired
-	private GameRepository gameRepository;
+	private GameRepository repository;
 	
 	@Transactional(readOnly = true)
 	public List<GameDto> findAll() {
-		List<Game> list = gameRepository.findAll();
+		List<Game> list = repository.findAll();
 		return list.stream().map(x -> new GameDto(x)).collect(Collectors.toList());
 	}
 }
